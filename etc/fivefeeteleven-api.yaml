@@ -1,0 +1,7 @@
+MachineID: 1
+Name: fivefeeteleven-api
+Host: 0.0.0.0
+Port: 5111
+ScyllaDB:
+  Hosts:
+    - "localhost"

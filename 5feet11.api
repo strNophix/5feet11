@@ -1,0 +1,37 @@
+syntax = "v1"
+
+info (
+	title: "5feet11"
+	author: "niku"
+	email: "nvdpoel01@gmail.com"
+)
+
+type (
+	ExpandReq {
+		Snowflake string `path:"snowflake"`
+	}
+
+	ExpandResp {
+		RedirectUrl string `json:"redirectUrl"`
+	}
+)
+
+type (
+	ShortenReq {
+		RedirectUrl string `json:"redirectUrl"`
+		Secret      string `json:"secret,optional"`
+		ExpiresIn   int64  `json:"expiresIn,optional"`
+	}
+
+	ShortenResp {
+		Id string `json:"id"`
+	}
+)
+
+service fivefeeteleven-api {
+	@handler ExpandUrl
+	get /:snowflake(ExpandReq) returns(ExpandResp)
+	
+	@handler ShortenUrl
+	post /redirect(ShortenReq) returns(ShortenResp)
+}
