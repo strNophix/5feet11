@@ -2,7 +2,7 @@
 package types
 
 type ExpandReq struct {
-	Snowflake string `path:"snowflake"`
+	ID string `path:"id"`
 }
 
 type ExpandResp struct {
@@ -15,5 +15,5 @@ type ShortenReq struct {
 }
 
 type ShortenResp struct {
-	Id string `json:"id"`
+	ID string `json:"id"`
 }

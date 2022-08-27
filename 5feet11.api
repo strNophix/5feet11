@@ -8,7 +8,7 @@ info (
 
 type (
 	ExpandReq {
-		Snowflake string `path:"snowflake"`
+		ID string `path:"id"`
 	}
 
 	ExpandResp {
@@ -23,13 +23,13 @@ type (
 	}
 
 	ShortenResp {
-		Id string `json:"id"`
+		ID string `json:"id"`
 	}
 )
 
 service fivefeeteleven-api {
 	@handler ExpandUrl
-	get /:snowflake(ExpandReq) returns(ExpandResp)
+	get /:id(ExpandReq) returns(ExpandResp)
 	
 	@handler ShortenUrl
 	post /redirect(ShortenReq) returns(ShortenResp)

@@ -10,6 +10,6 @@ var UrlTable = table.New(table.Metadata{
 })
 
 type UrlModel struct {
-	Id          string
+	ID          string
 	RedirectUrl string
 }
