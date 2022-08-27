@@ -4,4 +4,8 @@ Host: 0.0.0.0
 Port: 5111
 ScyllaDB:
   Hosts:
-    - "localhost"
+    - localhost
+# Prometheus:
+#   Host: 0.0.0.0
+#   Port: 9091
+#   Path: /metrics
