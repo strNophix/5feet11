@@ -27,8 +27,14 @@ func NewShortenUrlLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Shorte
 
 func (l *ShortenUrlLogic) ShortenUrl(req *types.ShortenReq) (resp *types.ShortenResp, err error) {
 	id := l.svcCtx.Snowflake.Generate().Base58()
+	insertBuilder := db.UrlTable.InsertBuilder()
 
-	insertUrl := db.UrlTable.InsertBuilder().TTL(30 * time.Second).Query(l.svcCtx.DB)
+	logx.Info(req.ExpiresAfter)
+	if req.ExpiresAfter != 0 {
+		insertBuilder.TTL(time.Second * time.Duration(req.ExpiresAfter))
+	}
+
+	insertUrl := insertBuilder.Query(l.svcCtx.DB)
 	insertUrl.BindStruct(db.UrlModel{
 		ID:      id,
 		LongUrl: req.LongUrl,

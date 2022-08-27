@@ -10,8 +10,8 @@ type ExpandResp struct {
 }
 
 type ShortenReq struct {
-	LongUrl   string `json:"longUrl"`
-	ExpiresIn int64  `json:"expiresIn,optional"`
+	LongUrl      string `json:"longUrl"`
+	ExpiresAfter int64  `json:"expiresAfter,optional"`
 }
 
 type ShortenResp struct {
