@@ -26,7 +26,7 @@ func NewExpandUrlLogic(ctx context.Context, svcCtx *svc.ServiceContext) *ExpandU
 }
 
 func (l *ExpandUrlLogic) ExpandUrl(req *types.ExpandReq) (resp *types.ExpandResp, err error) {
-	queryUrl := db.UrlTable.SelectBuilder("redirect_url").Query(l.svcCtx.DB)
+	queryUrl := db.UrlTable.SelectBuilder("long_url").Query(l.svcCtx.DB)
 	queryUrl.BindStruct(db.UrlModel{ID: req.ID})
 
 	var urls []db.UrlModel
