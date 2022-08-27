@@ -19,7 +19,6 @@ type (
 type (
 	ShortenReq {
 		RedirectUrl string `json:"redirectUrl"`
-		Secret      string `json:"secret,optional"`
 		ExpiresIn   int64  `json:"expiresIn,optional"`
 	}
 

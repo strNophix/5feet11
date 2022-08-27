@@ -11,7 +11,6 @@ type ExpandResp struct {
 
 type ShortenReq struct {
 	RedirectUrl string `json:"redirectUrl"`
-	Secret      string `json:"secret,optional"`
 	ExpiresIn   int64  `json:"expiresIn,optional"`
 }
 

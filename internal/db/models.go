@@ -4,7 +4,7 @@ import "github.com/scylladb/gocqlx/v2/table"
 
 var UrlTable = table.New(table.Metadata{
 	Name:    "fivefeeteleven.urls",
-	Columns: []string{"id", "redirect_url", "secret"},
+	Columns: []string{"id", "redirect_url"},
 	PartKey: []string{"id"},
 	SortKey: []string{},
 })
@@ -12,5 +12,4 @@ var UrlTable = table.New(table.Metadata{
 type UrlModel struct {
 	Id          string
 	RedirectUrl string
-	Secret      *string
 }

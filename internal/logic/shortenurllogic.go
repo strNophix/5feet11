@@ -32,7 +32,6 @@ func (l *ShortenUrlLogic) ShortenUrl(req *types.ShortenReq) (resp *types.Shorten
 	insertUrl.BindStruct(db.UrlModel{
 		Id:          id,
 		RedirectUrl: req.RedirectUrl,
-		Secret:      &req.Secret,
 	})
 
 	if err := insertUrl.ExecRelease(); err != nil {
