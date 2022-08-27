@@ -30,8 +30,8 @@ func (l *ShortenUrlLogic) ShortenUrl(req *types.ShortenReq) (resp *types.Shorten
 
 	insertUrl := db.UrlTable.InsertBuilder().TTL(30 * time.Second).Query(l.svcCtx.DB)
 	insertUrl.BindStruct(db.UrlModel{
-		ID:          id,
-		RedirectUrl: req.RedirectUrl,
+		ID:      id,
+		LongUrl: req.LongUrl,
 	})
 
 	if err := insertUrl.ExecRelease(); err != nil {

@@ -23,7 +23,7 @@ func ExpandUrlHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 		if err != nil {
 			httpx.Error(w, err)
 		} else {
-			http.Redirect(w, r, resp.RedirectUrl, http.StatusTemporaryRedirect)
+			http.Redirect(w, r, resp.LongUrl, http.StatusTemporaryRedirect)
 		}
 	}
 }

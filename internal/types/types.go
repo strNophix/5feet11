@@ -6,12 +6,12 @@ type ExpandReq struct {
 }
 
 type ExpandResp struct {
-	RedirectUrl string `json:"redirectUrl"`
+	LongUrl string `json:"longUrl"`
 }
 
 type ShortenReq struct {
-	RedirectUrl string `json:"redirectUrl"`
-	ExpiresIn   int64  `json:"expiresIn,optional"`
+	LongUrl   string `json:"longUrl"`
+	ExpiresIn int64  `json:"expiresIn,optional"`
 }
 
 type ShortenResp struct {

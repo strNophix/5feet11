@@ -15,7 +15,7 @@ func Seed(session gocqlx.Session) error {
 	err = session.ExecStmt(`
 		CREATE TABLE IF NOT EXISTS fivefeeteleven.urls (
 			id text PRIMARY KEY,
-			redirect_url text
+			long_url text
 		)`)
 
 	if err != nil {

@@ -39,7 +39,7 @@ func (l *ExpandUrlLogic) ExpandUrl(req *types.ExpandReq) (resp *types.ExpandResp
 	}
 
 	resp = &types.ExpandResp{
-		RedirectUrl: urls[0].RedirectUrl,
+		LongUrl: urls[0].LongUrl,
 	}
 
 	return resp, err
