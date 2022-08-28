@@ -17,13 +17,6 @@ services:
       - .docker/prometheus:/etc/prometheus
       - prometheus-data:/prometheus
     command: --web.enable-lifecycle  --config.file=/etc/prometheus/prometheus.yml
-  # api:
-  #   build:
-  #     context: .
-  #   ports:
-  #     - 5111:5111
-  #   depends_on:
-  #     - scylla
 
 volumes:
   prometheus-data:
