@@ -2,9 +2,8 @@
 
 A URL shortener that generates links even shorter than 5'11.
 
-## Requirements
+## Prepare
 - ScyllaDB
-- Docker
 - Prometheus*
 
 *: Optional
