@@ -22,6 +22,11 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				Path:    "/api/v1/links",
 				Handler: ShortenUrlHandler(serverCtx),
 			},
+			{
+				Method:  http.MethodGet,
+				Path:    "/api/v1/links/:id",
+				Handler: GetLinkHandler(serverCtx),
+			},
 		},
 	)
 }

@@ -17,3 +17,10 @@ type ShortenReq struct {
 type ShortenResp struct {
 	ID string `json:"id"`
 }
+
+type GetLinkResp struct {
+	ID        string `json:"id"`
+	LongUrl   string `json:"longUrl"`
+	CreatedAt string `json:"createdAt"`
+	Lifespan  int64  `json:"lifespan"`
+}

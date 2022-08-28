@@ -16,7 +16,8 @@ func Seed(session gocqlx.Session) error {
 		CREATE TABLE IF NOT EXISTS fivefeeteleven.urls (
 			id text PRIMARY KEY,
 			long_url text,
-			created_at timestamp
+			created_at timestamp,
+			lifespan bigint
 		)`)
 
 	if err != nil {

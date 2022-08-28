@@ -8,7 +8,7 @@ import (
 
 var UrlTable = table.New(table.Metadata{
 	Name:    "fivefeeteleven.urls",
-	Columns: []string{"id", "long_url", "created_at"},
+	Columns: []string{"id", "long_url", "lifespan", "created_at"},
 	PartKey: []string{"id"},
 	SortKey: []string{},
 })
@@ -16,5 +16,6 @@ var UrlTable = table.New(table.Metadata{
 type UrlModel struct {
 	ID        string
 	LongUrl   string
+	Lifespan  int64
 	CreatedAt time.Time
 }

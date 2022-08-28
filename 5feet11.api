@@ -27,10 +27,22 @@ type (
 	}
 )
 
+type (
+	GetLinkResp {
+		ID        string `json:"id"`
+		LongUrl   string `json:"longUrl"`
+		CreatedAt string `json:"createdAt"`
+		Lifespan  int64  `json:"lifespan"`
+	}
+)
+
 service fivefeeteleven-api {
 	@handler ExpandUrl
 	get /:id(ExpandReq) returns(ExpandResp)
 	
 	@handler ShortenUrl
 	post /api/v1/links(ShortenReq) returns(ShortenResp)
+	
+	@handler GetLink
+	get /api/v1/links/:id(ExpandReq) returns(GetLinkResp)
 }

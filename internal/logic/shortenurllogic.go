@@ -38,6 +38,7 @@ func (l *ShortenUrlLogic) ShortenUrl(req *types.ShortenReq) (resp *types.Shorten
 	insertUrl.BindStruct(db.UrlModel{
 		ID:        id,
 		LongUrl:   req.LongUrl,
+		Lifespan:  req.ExpiresAfter,
 		CreatedAt: time.Now(),
 	})
 
@@ -48,5 +49,6 @@ func (l *ShortenUrlLogic) ShortenUrl(req *types.ShortenReq) (resp *types.Shorten
 	resp = &types.ShortenResp{
 		ID: id,
 	}
+
 	return resp, nil
 }
