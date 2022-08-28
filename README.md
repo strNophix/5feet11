@@ -7,8 +7,8 @@ A URL shortener that generates links even shorter than 5'11.
 # Shorten a URL
 curl --header "Content-Type: application/json" \
   --request POST \
-  --data '{"redirectUrl":"https://news.ycombinator.com"}' \
-  http://localhost:5111/redirect
+  --data '{"longUrl":"https://news.ycombinator.com"}' \
+  http://localhost:5111/api/v1/links
 
 # Expand the URL
 curl -iL http://localhost:5111/{id}

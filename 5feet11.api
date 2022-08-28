@@ -32,5 +32,5 @@ service fivefeeteleven-api {
 	get /:id(ExpandReq) returns(ExpandResp)
 	
 	@handler ShortenUrl
-	post /redirect(ShortenReq) returns(ShortenResp)
+	post /api/v1/links(ShortenReq) returns(ShortenResp)
 }
