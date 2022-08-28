@@ -2,9 +2,9 @@ package logic
 
 import (
 	"context"
-	"fmt"
 
 	"5feet11/internal/db"
+	"5feet11/internal/errorx"
 	"5feet11/internal/svc"
 	"5feet11/internal/types"
 
@@ -31,11 +31,11 @@ func (l *ExpandUrlLogic) ExpandUrl(req *types.ExpandReq) (resp *types.ExpandResp
 
 	var urls []db.UrlModel
 	if err := queryUrl.Select(&urls); err != nil {
-		return nil, err
+		return nil, errorx.NewDefaultError(err.Error())
 	}
 
 	if len(urls) != 1 {
-		return nil, fmt.Errorf("no URL found")
+		return nil, errorx.NewDefaultError("no URL found")
 	}
 
 	resp = &types.ExpandResp{

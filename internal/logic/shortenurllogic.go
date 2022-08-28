@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"5feet11/internal/db"
+	"5feet11/internal/errorx"
 	"5feet11/internal/svc"
 	"5feet11/internal/types"
 
@@ -43,7 +44,7 @@ func (l *ShortenUrlLogic) ShortenUrl(req *types.ShortenReq) (resp *types.Shorten
 	})
 
 	if err := insertUrl.ExecRelease(); err != nil {
-		return nil, err
+		return nil, errorx.NewDefaultError(err.Error())
 	}
 
 	resp = &types.ShortenResp{
