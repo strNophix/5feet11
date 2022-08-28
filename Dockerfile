@@ -1,4 +1,4 @@
-FROM golang:alpine AS builder
+FROM golang:1.19-alpine AS builder
 
 LABEL stage=gobuilder
 
@@ -19,8 +19,8 @@ RUN go build -ldflags="-s -w" -o /app/5feet11 .
 FROM scratch
 
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
-COPY --from=builder /usr/share/zoneinfo/Europe/Amsterdam /usr/share/zoneinfo/Europe/Amsterdam
-ENV TZ Europe/Amsterdam
+COPY --from=builder /usr/share/zoneinfo/Etc/UTC /usr/share/zoneinfo/Etc/UTC
+ENV TZ Etc/UTC
 
 WORKDIR /app
 COPY --from=builder /app/5feet11 /app/5feet11
