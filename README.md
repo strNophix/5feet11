@@ -1,6 +1,6 @@
 # 5feet11
 
-A URL shortener that generates links as short as 5'11. <3
+A scalable URL shortener.
 
 ## Prepare
 - ScyllaDB
